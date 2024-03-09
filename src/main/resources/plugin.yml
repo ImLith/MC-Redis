@@ -8,5 +8,5 @@ description: A Redis Core plugin for MineCraft plugins
 author: Lith
 website: https://github.com/ImLith/MC-Redis
 
-depend: []
+depend: [LithCore]
 softdepend: []
