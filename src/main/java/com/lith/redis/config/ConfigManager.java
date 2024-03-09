@@ -1,7 +1,7 @@
 package com.lith.redis.config;
 
-import com.lith.lithcore.config.MainPlugin;
-import com.lith.lithcore.config.PluginConfigManager;
+import com.lith.lithcore.abstractClasses.MainPlugin;
+import com.lith.lithcore.abstractClasses.PluginConfigManager;
 import com.lith.redis.Static;
 
 public class ConfigManager extends PluginConfigManager {

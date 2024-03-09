@@ -1,6 +1,6 @@
 package com.lith.redis;
 
-import com.lith.lithcore.config.MainPlugin;
+import com.lith.lithcore.abstractClasses.MainPlugin;
 import com.lith.redis.classes.RedisDb;
 import com.lith.redis.config.ConfigManager;
 
