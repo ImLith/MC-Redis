@@ -1,7 +1,7 @@
 name: Redis
 main: com.lith.redis.Plugin
 
-version: 0.0.2
+version: 0.0.3
 api-version: 1.20
 
 description: A Redis Core plugin for MineCraft plugins
