@@ -31,14 +31,22 @@ public class RedisDb {
         }
     }
 
-    public void set(String key, String value) {
+    public void set(String key, String value, long expiration) {
         this.throwNotConnected();
         this.jedis.set(key, value);
+
+        if (expiration > 0L)
+            this.jedis.expire(key, expiration);
     }
 
     public String get(String key) {
         this.throwNotConnected();
         return this.jedis.get(key);
+    }
+
+    public void del(String key) {
+        this.throwNotConnected();
+        this.jedis.del(key);
     }
 
     private void throwNotConnected() {
