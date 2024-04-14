@@ -23,8 +23,8 @@ public class RedisDb {
 
     public void connect() {
         if (!isOnline()) {
-            this.jedis = new Jedis(plugin.configs.host(), plugin.configs.port());
-            this.jedis.auth(plugin.configs.password());
+            this.jedis = new Jedis(plugin.configs.getHost(), plugin.configs.getPort());
+            this.jedis.auth(plugin.configs.getPassword());
         }
     }
 
