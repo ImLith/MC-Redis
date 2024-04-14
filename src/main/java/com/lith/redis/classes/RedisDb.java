@@ -54,7 +54,7 @@ public class RedisDb {
     }
 
     private void throwNotConnected() {
-        if (jedis == null) {
+        if (!isOnline()) {
             throw new IllegalStateException("Redis connection is not initialized");
         }
     }
