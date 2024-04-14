@@ -7,15 +7,23 @@ import com.lith.redis.config.ConfigManager;
 public class Plugin extends AbstractPlugin<Plugin, ConfigManager> {
   public static Plugin plugin;
 
+  @Override
   public void onEnable() {
-    Plugin.plugin = this;
-    new ConfigManager(this);
-    RedisDb.init().connect();
-    log.info("Plugin enabled");
+    plugin = this;
+    configs = new ConfigManager(this);
+    super.onEnable();
   }
 
+  @Override
   public void onDisable() {
     RedisDb.init().disconnect();
-    log.info("Plugin disabled");
+    super.onDisable();
+  }
+
+  @Override
+  protected void registerConfigs() {
+    RedisDb.init().disconnect();
+    super.registerConfigs();
+    RedisDb.init().connect();
   }
 }
