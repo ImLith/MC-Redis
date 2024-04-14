@@ -1,7 +1,7 @@
 package com.lith.redis.classes;
 
-import com.lith.redis.Plugin;
 import redis.clients.jedis.Jedis;
+import static com.lith.redis.Plugin.plugin;
 
 public class RedisDb {
     private static RedisDb redis = null;
@@ -17,15 +17,19 @@ public class RedisDb {
         return RedisDb.redis;
     }
 
+    public boolean isOnline() {
+        return this.jedis != null;
+    }
+
     public void connect() {
-        if (this.jedis == null) {
-            this.jedis = new Jedis(Plugin.plugin.cm.host(), Plugin.plugin.cm.port());
-            this.jedis.auth(Plugin.plugin.cm.password());
+        if (!isOnline()) {
+            this.jedis = new Jedis(plugin.configs.getHost(), plugin.configs.getPort());
+            this.jedis.auth(plugin.configs.getPassword());
         }
     }
 
     public void disconnect() {
-        if (this.jedis != null) {
+        if (isOnline()) {
             this.jedis.close();
             this.jedis = null;
         }
@@ -50,7 +54,7 @@ public class RedisDb {
     }
 
     private void throwNotConnected() {
-        if (jedis == null) {
+        if (!isOnline()) {
             throw new IllegalStateException("Redis connection is not initialized");
         }
     }
