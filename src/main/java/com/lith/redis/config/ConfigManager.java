@@ -13,7 +13,11 @@ public class ConfigManager extends AbstractConfigManager<Plugin, ConfigManager> 
 
     public ConfigManager(final Plugin plugin) {
         super(plugin);
+    }
 
+    @Override
+    public void load() {
+        super.load();
         this.getConfigs();
     }
 
