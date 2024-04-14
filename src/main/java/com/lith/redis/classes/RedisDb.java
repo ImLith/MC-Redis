@@ -19,8 +19,8 @@ public class RedisDb {
 
     public void connect() {
         if (this.jedis == null) {
-            this.jedis = new Jedis(Plugin.plugin.cm.host(), Plugin.plugin.cm.port());
-            this.jedis.auth(Plugin.plugin.cm.password());
+            this.jedis = new Jedis(Plugin.plugin.configs.host(), Plugin.plugin.configs.port());
+            this.jedis.auth(Plugin.plugin.configs.password());
         }
     }
 

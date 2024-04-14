@@ -1,14 +1,14 @@
 package com.lith.redis.config;
 
-import com.lith.lithcore.abstractClasses.MainPlugin;
-import com.lith.lithcore.abstractClasses.PluginConfigManager;
+import com.lith.lithcore.abstractClasses.AbstractConfigManager;
+import com.lith.redis.Plugin;
 import com.lith.redis.Static;
 
-public class ConfigManager extends PluginConfigManager {
+public class ConfigManager extends AbstractConfigManager<Plugin, ConfigManager> {
     private String host, password;
     private Integer port;
 
-    public ConfigManager(final MainPlugin<ConfigManager> plugin) {
+    public ConfigManager(final Plugin plugin) {
         super(plugin);
 
         this.getConfigs();
